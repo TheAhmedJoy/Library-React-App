@@ -6,8 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 // FontAwesome Setup
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBars, faShoppingCart, faTimes, faBolt, faBookOpen, faTags } from '@fortawesome/free-solid-svg-icons';
-library.add(faBars, faShoppingCart, faTimes, faBolt, faBookOpen, faTags);
+import { faBars, faShoppingCart, faTimes, faBolt, faBookOpen, faTags, faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
+library.add(faBars, faShoppingCart, faTimes, faBolt, faBookOpen, faTags, faStar, faStarHalfAlt);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
