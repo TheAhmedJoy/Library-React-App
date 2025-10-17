@@ -395,7 +395,7 @@ header {
 }
 
 .book__price--skeleton {
-  width : 200px;
+  width: 200px;
   height: 19px;
 }
 
@@ -428,6 +428,12 @@ header {
   text-decoration: line-through;
   padding-right: 6px;
   color: #bfbfbf;
+}
+
+/* EXPLORE */
+
+#explore {
+  background-color: rgba(115, 66, 214, 0.1);
 }
 
 /* FOOTER */
