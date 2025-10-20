@@ -13,7 +13,7 @@ function App() {
         <Nav />
         <Route path="/" exact component={HomePage} />
         <Route path="/books" exact render={() => <BooksPage books={booksData} />}/>
-        <Route path='/books/1' render={() => <BookInfo books={booksData}/>} />
+        <Route path='/books/:id' render={() => <BookInfo books={booksData}/>} />
         <Footer />
       </div>
     </Router>
