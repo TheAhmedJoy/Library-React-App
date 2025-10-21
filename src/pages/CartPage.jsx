@@ -1,4 +1,6 @@
 import React from 'react'
+import EmptyCart from "../assets/empty_cart.svg"
+import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
 export default function CartPage({ cart, changeCartItemQuantity, removeItemFromCart }) {
     const subTotal = () => {
@@ -56,24 +58,35 @@ export default function CartPage({ cart, changeCartItemQuantity, removeItemFromC
                                     })
                                 }
                             </div>
+                            {cart.length === 0 &&
+                                (<div className="cart__empty">
+                                    <img src={EmptyCart} alt="" className="cart__empty--img" />
+                                    <h2>You don't have any books in your cart!</h2>
+                                    <Link to="/books">
+                                        <button className="btn">Browse Books</button>
+                                    </Link>
+                                </div>)
+                            }
                         </div>
-                        <div className="total">
-                            <div className="total__item total__sub-total">
-                                <span>Subtotal</span>
-                                <span>${subTotal().toFixed(2)}</span>
-                            </div>
-                            <div className="total__item total__tax">
-                                <span>Tax</span>
-                                <span>${(subTotal() * 0.1).toFixed(2)}</span>
-                            </div>
-                            <div className="total__item total__price">
-                                <span>Total</span>
-                                <span>${(subTotal() * 1.1).toFixed(2)}</span>
-                            </div>
-                            <button className="btn btn__checkout no-cursor" onClick={() => alert("Feature not yet implemented.")}>
-                                Proceed to Checkout
-                            </button>
-                        </div>
+                        {cart.length > 0 &&
+                            (<div className="total">
+                                <div className="total__item total__sub-total">
+                                    <span>Subtotal</span>
+                                    <span>${subTotal().toFixed(2)}</span>
+                                </div>
+                                <div className="total__item total__tax">
+                                    <span>Tax</span>
+                                    <span>${(subTotal() * 0.1).toFixed(2)}</span>
+                                </div>
+                                <div className="total__item total__price">
+                                    <span>Total</span>
+                                    <span>${(subTotal() * 1.1).toFixed(2)}</span>
+                                </div>
+                                <button className="btn btn__checkout no-cursor" onClick={() => alert("Feature not yet implemented.")}>
+                                    Proceed to Checkout
+                                </button>
+                            </div>)
+                        }
                     </div>
                 </div>
             </main>
