@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Nav from './components/Nav';
 import Footer from './components/Footer'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
@@ -33,14 +33,19 @@ function App() {
     setCart(cart.filter(book => book.id !== item.id))
   }
 
-  useEffect(() => {
-    console.log(cart)
-  }, [cart])
+  function numberOfItemsInCart() {
+    let itemCounter = 0
+    cart.forEach(item => {
+      itemCounter += item.quantity
+    })
+
+    return itemCounter
+  }
 
   return (
     <Router>
       <div className="App">
-        <Nav />
+        <Nav numberOfItemsInCart={numberOfItemsInCart()}/>
         <Route path="/" exact component={HomePage} />
         <Route path="/books" exact render={() => <BooksPage books={booksData} />} />
         <Route path='/books/:id' render={() => <BookInfo books={booksData} addToCart={addToCart} cart={cart}/>} />
